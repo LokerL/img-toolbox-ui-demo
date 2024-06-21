@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron/simple'
 import pkg from './package.json'
+import {fileURLToPath, URL} from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -62,6 +63,11 @@ export default defineConfig(({ command }) => {
         renderer: {},
       }),
     ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    },
     server: process.env.VSCODE_DEBUG && (() => {
       const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
       return {

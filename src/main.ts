@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import './style.css'
+import '../src/style/global.scss'
 
 import './demos/ipc'
-// If you want use Node.js, the`nodeIntegration` needs to be enabled in the Main process.
+// If you want to use Node.js, the`nodeIntegration` needs to be enabled in the Main process.
 // import './demos/node'
 
 createApp(App)
